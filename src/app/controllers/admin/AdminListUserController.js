@@ -4,7 +4,7 @@ class AdminListUserController {
     // GET /me/stored/couses
 
     listUser(req, res) {
-        res.render('admin/list-user');
+        res.render('admin/list-user',{isAdmin: true});
     }
 }
 module.exports = new AdminListUserController();

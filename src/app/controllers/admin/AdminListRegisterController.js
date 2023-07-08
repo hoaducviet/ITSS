@@ -4,17 +4,17 @@ class AdminListRegisterController {
     // GET /me/stored/couses
 
     listRegister(req, res) {
-        res.render('admin/list-register');
+        res.render('admin/list-register',{isAdmin: true});
     }
     momProfile(req, res) {
-        res.render('admin/profile-mom');
+        res.render('admin/profile-mom',{isAdmin: true});
     }
 
     babyProfile(req, res) {
-        res.render('admin/profile-baby');
+        res.render('admin/profile-baby',{isAdmin: true});
     }
     addBabyProfile(req, res) {
-        res.render('admin/profile-baby-add');
+        res.render('admin/profile-baby-add',{isAdmin: true});
     }
 }
 module.exports = new AdminListRegisterController();

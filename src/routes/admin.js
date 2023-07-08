@@ -12,7 +12,7 @@ router.get('/profile/mom', adminListRegisterController.momProfile);
 router.get('/profile/baby', adminListRegisterController.babyProfile);
 router.get('/profile/baby/add', adminListRegisterController.addBabyProfile);
 router.get('/chart', adminChartController.chart);
-router.get('/user', adminListUserController.listUser);
+router.get('/list', adminListUserController.listUser);
 router.get('/injection', adminInjectionController.injection);
 router.get('/injection/add', adminInjectionController.injectionAdd);
 

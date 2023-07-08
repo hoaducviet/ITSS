@@ -4,7 +4,7 @@ class AdminChartController {
     // GET /me/stored/couses
 
     chart(req, res) {
-        res.render('admin/chart');
+        res.render('admin/chart',{isAdmin: true});
     }
 }
 module.exports = new AdminChartController();

@@ -14,12 +14,21 @@
 <body>
     <div class="app">
         
-        {{> header}}
+       <div class="app">
+        {{#if isAdmin}}
+            {{> admin-header}}
+        {{else}}
+            {{> user-header}}
+        {{/if}}
         <div class="container-fluid">
             {{{body}}}
         </div>
-        {{> footer}}
-        
+        {{#if isAdmin}}
+            {{> admin-footer}}
+        {{else}}
+            {{> user-footer}}
+        {{/if}}
+    </div>
     </div>
         
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>

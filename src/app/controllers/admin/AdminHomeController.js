@@ -4,7 +4,7 @@ class AdminHomeController {
     // GET /me/stored/couses
 
     home(req, res) {
-        res.render('admin/home');
+        res.render('admin/home',{isAdmin: true});
     }
 }
 module.exports = new AdminHomeController();
