@@ -10,5 +10,12 @@ class AdminInjectionController {
     injectionAdd(req, res) {
         res.render('admin/injection-add',{isAdmin: true});
     }
+    injectionInfo(req, res) {
+        res.render('admin/injection-info',{isAdmin: true});
+    }
+    injectionUpdate(req, res) {
+        res.render('admin/injection-update',{isAdmin: true});
+    }
+
 }
 module.exports = new AdminInjectionController();
