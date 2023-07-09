@@ -1,6 +1,6 @@
 <div>
     <div class="container">
-        <div class="row ps-3 pt-4"><h1>Lịch</h1></div>
+        <div class="row ps-3 pt-4"><h1>Đăng Ký</h1></div>
             <div class="row mt-5 d-flex align-items-center justify-content-center">
                 <div class="col-3 ps-5 pe-5">
                     <label for="time-calendar" class="form-label">Thời Gian</label>
@@ -16,8 +16,8 @@
                     </select>
                 </div>
                 
-            <div class="col-2 ps-5 pt-5"><button class="btn btn-primary">Lịch Tiêm</button></div>
-            <div class="col-2 pt-5"><button class="btn btn-primary">Lịch khám</button></div>
+            <div class="col-2 ps-5 pt-5"><a href="/user/register/injection" class="btn btn-primary">+ Lịch Tiêm</a></div>
+            <div class="col-2 pt-5"><a href="/user/register/doctor" class="btn btn-primary">+ Lịch khám</a></div>
         </div>
         <div class="row me-5">
             <table class="table m-5 pe-5 shadow rounded-5">
@@ -28,7 +28,7 @@
                     <th style="width:200px;">Loại</th>
                     <th style="width:200px;">Tình Trạng</th>
                     <th style="width:200px;">Thời gian</th>
-                    <th style="width:200px;"> Ngày</th>
+                    <th colspan="2" style="width:200px;"> Ngày</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,6 +39,20 @@
                         <td>Dang sap lich</td>
                         <td>7.00</td>
                         <td>24/6/2023</td>
+                        <td>
+                            <button class="btn btn-danger ms-2">Xoá</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>mario Schall</td>
+                        <td>23</td>
+                        <td>Tiêm Chủng</td>
+                        <td>Dang sap lich</td>
+                        <td>7.00</td>
+                        <td>24/6/2023</td>
+                        <td>
+                            <button class="btn btn-danger ms-2">Xoá</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

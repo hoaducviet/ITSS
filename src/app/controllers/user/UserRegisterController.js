@@ -1,10 +1,10 @@
 const Course = require('../../models/Course');
 const { mutipleMongooseToObject } = require('../../../util/mongoose');
-class AdminListRegisterController {
+class UserRegisterController {
     // GET /me/stored/couses
 
-    calendar(req, res) {
-        res.render('user/calendar');
+    register(req, res) {
+        res.render('user/register');
     }
 
     registerInjection(req, res) {
@@ -14,4 +14,4 @@ class AdminListRegisterController {
         res.render('user/register-doctor');
     }
 }
-module.exports = new AdminListRegisterController();
+module.exports = new UserRegisterController();

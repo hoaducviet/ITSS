@@ -3,11 +3,11 @@ const { mutipleMongooseToObject } = require('../../../util/mongoose');
 class UserProfileController {
     // GET /me/stored/couses
 
-    profileNoUpdate(req, res) {
-        res.render('user/profile-no-update');
-    }
     profile(req, res) {
         res.render('user/profile');
+    }
+    profileUpdate(req, res) {
+        res.render('user/profile-update');
     }
 }
 module.exports = new UserProfileController();

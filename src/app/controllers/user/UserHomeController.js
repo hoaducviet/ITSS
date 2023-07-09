@@ -6,5 +6,8 @@ class UserHomeController {
     home(req, res) {
         res.render('user/home');
     }
+    homeChart(req, res) {
+        res.render('user/home-chart');
+    }
 }
 module.exports = new UserHomeController();
