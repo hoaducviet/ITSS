@@ -23,8 +23,9 @@
                 </tr>
                 </thead>
                 <tbody>
+                    {{#each Users}}
                     <tr>
-                        <td>mario Schall</td>
+                        <td>{{this.Ten}}</td>
                         <td>23</td>
                         <td>Kham benh</td>
                         <td>7.00</td>
@@ -34,6 +35,7 @@
                             <button class="btn btn-danger">Xoá</button>
                         </td>
                     </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>

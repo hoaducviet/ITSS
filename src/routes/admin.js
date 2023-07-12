@@ -10,7 +10,7 @@ router.get('/home', adminHomeController.home);
 
 router.get('/register', adminRegisterController.registerList);
 router.get('/register/injection', adminRegisterController.registerInjection);
-router.get('/register/seedoctor', adminRegisterController.registerSeeADoctor);
+router.get('/register/seeadoctor', adminRegisterController.registerSeeADoctor);
 
 
 
@@ -26,7 +26,10 @@ router.get('/user/info/medical/update', adminUserController.userInfoMedicalUpdat
 
 router.get('/injection', adminInjectionController.injection);
 router.get('/injection/add', adminInjectionController.injectionAdd);
-router.get('/injection/info', adminInjectionController.injectionInfo);
-router.get('/injection/update', adminInjectionController.injectionUpdate);
+router.post('/injection/store', adminInjectionController.store);
+router.delete('/injection/:id', adminInjectionController.delete);
+router.get('/injection/info/:id', adminInjectionController.injectionInfo);
+router.get('/injection/edit/:id', adminInjectionController.injectionEdit);
+router.put('/injection/update/:id', adminInjectionController.injectionUpdate);
 
 module.exports = router;

@@ -17,29 +17,66 @@
             <table class="table ms-5 pe-5 shadow rounded-5">
                 <thead class="header-table">
                 <tr style="height: 40px;">
-                    <th style="width:250px;">Tên</th>
+                    <th style="width:250px;">Tên Vaccine</th>
+                    <th style="width:250px;">Đối Tượng</th>
                     <th style="width:250px;">Xuất Xứ</th>
-                    <th style="width:250px;">Mũi Tiêm</th>
                     <th style="width:250px;">Số Lượng</th>
-                    <th style="width:250px;">Ngày Tiêm</th>
+                    <th style="width:250px;">Ngày Hết Hạn</th>
                     <th class="text-center" style="width:200px;">Tác Vụ</th>
                 </tr>
                 </thead>
                 <tbody>
+                    {{#each Injections}}
                     <tr>
-                        <td>David Nacho</td>
-                        <td>USA</td>
-                        <td>Prifzer</td>
-                        <td>2</td>
-                        <td>2/3/2023</td>
+                        <td>{{this.nameVaccine}}</td>
+                        <td>{{this.object}}</td>
+                        <td>{{this.made}}</td>
+                        <td>{{this.number}}</td>
+                        <td>{{this.date}}</td>
                         <td class="d-flex justify-content-center">
-                            <a href="/admin/injection/info" class="btn btn-success me-4">Xem</a>
-                            <button class="btn btn-danger">Xoá</button>
+                            <a href="/admin/injection/info/{{this._id}}" class="btn btn-success me-4">Xem</a>
+                            <button class="btn btn-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#delete-injection-modal">Xoá</button>
                         </td>
                     </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-   
+<div class="modal" id="delete-injection-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xoá Khoá Học</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xoá khoá học này không?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-injection" type="button" class="btn btn-danger">Xoá Bỏ</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form method="POST" name="delete-injection-form"></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var injectionId
+        var deleteForm = document.forms['delete-injection-form']
+        $('#delete-injection-modal').on('show.bs.modal',function(e){
+            var button = $(e.relatedTarget)
+            injectionId = button.data('id')
+        })
+        $('#btn-delete-injection').on('click',function(){
+            deleteForm.action = '/admin/injection/' + injectionId + '?_method=DELETE'
+            deleteForm.submit()
+            
+        })
+
+        
+    })
+</script>

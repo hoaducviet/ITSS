@@ -1,7 +1,12 @@
 const Handlebars = require('handlebars');
 
 module.exports = {
+    
     sum: (a, b) => a + b,
+    option: (str1, str2) => {
+        if (str1 == str2){return true}
+        else {return false}
+    },
     sortable: (field, sort) => {
         const sortType = field === sort.column ? sort.type : 'default';
 

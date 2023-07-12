@@ -16,17 +16,23 @@
                 </tr>
                 </thead>
                 <tbody>
+                    {{#each Registers}}
                     <tr>
-                        <td>mario Schall</td>
-                        <td>23</td>
-                        <td>Kham benh</td>
-                        <td>7.00</td>
-                        <td>24/6/2023</td>
+                        <td>{{this.name}}</td>
+                        <td>{{this.age}}</td>
+                        <td>{{this.option}}</td>
+                        <td>{{this.time}}</td>
+                        <td>{{this.date}}</td>
                         <td class="d-flex justify-content-center">
-                            <a href="/admin/register/seedoctor" class="btn btn-success me-4">Xem</a>
-                            <button class="btn btn-danger">Huỷ</button>
+                            {{#if (option this.option "Khám Bệnh")}}
+                                <a href="/admin/register/seeadoctor/{{this.slug}}" class="btn btn-success me-4">Xem</a>
+                            {{else if (option this.option "Tiêm Chủng")}}
+                                <a href="/admin/register/injection/{{this.slug}}" class="btn btn-success me-4">Xem</a>
+                            {{/if}}
+                            <button class="btn btn-primary">Duyệt</button>
                         </td>
                     </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </div>
