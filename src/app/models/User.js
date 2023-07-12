@@ -6,12 +6,12 @@ const mongooseDelete = require('mongoose-delete');
 mongoose.plugin(slug);
 const User = new Schema(
     {
-        Ten: { type: String, required: true },
-        GioiTinh: { type: String, maxLength: 600 },
-        SĐT: { type: Number},
-        Email: { type: String, maxLength: 255 },
-        DiaChi: { type: String, maxLength: 255 },
-        slug: { type: String, slug: 'Ten' },
+        name: { type: String, required: true },
+        gender: { type: String, maxLength: 600 },
+        phone: { type: Number},
+        email: { type: String, maxLength: 255 },
+        address: { type: String, maxLength: 255 },
+        slug: { type: String, slug: 'name' },
     },
     {
         timestamps: true,

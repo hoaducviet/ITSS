@@ -17,7 +17,8 @@ router.get('/register/seeadoctor', adminRegisterController.registerSeeADoctor);
 
 router.get('/chart', adminChartController.chart);
 router.get('/user', adminUserController.userList);
-router.get('/user/info', adminUserController.userInfo);
+router.get('/user/info/:id', adminUserController.userInfo);
+router.delete('/user/delete/:id', adminUserController.userDelete);
 router.get('/user/info/update', adminUserController.userInfoUpdate);
 router.get('/user/info/medical', adminUserController.userInfoMedical);
 router.get('/user/info/medical/update', adminUserController.userInfoMedicalUpdate);
@@ -26,8 +27,8 @@ router.get('/user/info/medical/update', adminUserController.userInfoMedicalUpdat
 
 router.get('/injection', adminInjectionController.injection);
 router.get('/injection/add', adminInjectionController.injectionAdd);
-router.post('/injection/store', adminInjectionController.store);
-router.delete('/injection/:id', adminInjectionController.delete);
+router.post('/injection/store', adminInjectionController.injectionStore);
+router.delete('/injection/:id', adminInjectionController.injectionDelete);
 router.get('/injection/info/:id', adminInjectionController.injectionInfo);
 router.get('/injection/edit/:id', adminInjectionController.injectionEdit);
 router.put('/injection/update/:id', adminInjectionController.injectionUpdate);

@@ -31,7 +31,7 @@ class AdminInjectionController {
 
 
     //POST /Admin/Injection/Stored
-    store(req, res, next) {
+    injectionStore(req, res, next) {
         const injection = new Injection(req.body);
         injection.save()
             .then(() => res.redirect('/admin/injection'))
@@ -39,9 +39,9 @@ class AdminInjectionController {
     }
 
     //DELETE soft /Admin/Injection/:id
-    delete(req, res, next) {
+    injectionDelete(req, res, next) {
         Injection.delete({ _id: req.params.id })
-            .then(() => res.redirect('admin/injection'))
+            .then(() => res.redirect('/admin/injection'))
             .catch(next);
     }
    

@@ -9,15 +9,23 @@ class AdminUserController {
     // GET /me/stored/couses
 
     userList(req, res, next) {
-        User.find({})
-            .then((Users) => {
+        Parent.find({})
+            .then((parents) => {
                 res.render('admin/user-list', {
                     isAdmin: true,
-                    Users: mutipleMongooseToObject(Users),
+                    parents: mutipleMongooseToObject(parents),
                 });
             })
             .catch(next);
     }
+
+    userDelete(req, res, next) {
+        Parent.delete({ _id: req.params.id })
+            .then(() => res.redirect('/admin/user'))
+            .catch(next);
+    }
+
+
     userInfo(req, res) {
         res.render('admin/user-info',{isAdmin: true});
     }
