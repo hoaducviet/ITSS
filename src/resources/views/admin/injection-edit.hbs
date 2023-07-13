@@ -10,7 +10,7 @@
                 <div class="col-12 mt-4">
                     <label for="object-name" class="mb-2">Đối Tượng</label>
                     <select class="form-select form-select" name="object" id="object-name" value="{{injection.object}}" style="width: 800px;">
-                        <option selected>Chọn</option>
+                        <option selected>{{injection.object}}</option>
                         <option value="Trẻ Em">Trẻ Em</option>
                         <option value="Bà Mẹ">Bà Mẹ</option>
                     </select>
@@ -34,7 +34,7 @@
             </div>
             <div class="row justify-content-center ms-4 mt-5">
                 <div class="col-12"><h4>Triệu Chứng Sau Tiêm:</h4></div>
-                <textarea class="col-12 ms-5 me-5" name="afterInjection" value="{{injection.afterInjection}}" rows="5" cols="10"></textarea>
+                <textarea class="col-12 ms-5 me-5" name="afterInjection" rows="5" cols="10">{{injection.afterInjection}}</textarea>
             </div>
             <div class="row m-4">
                 <a href="/admin/injection" class="btn btn-danger ms-auto me-3" style="width: 90px;">Huỷ</a>

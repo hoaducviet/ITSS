@@ -6,15 +6,15 @@
     <div class="row ">
         <div class="col-4"></div>
         <div class="col-4 mt-4">
-            <form action="">
+            <form method="POST" action="/signup/create">
                 <div class="col-12 mt-5 text-center"><h1>Sign Up</h1></div>
                 <div class="">
                     <label for="email-signup" class="mt-4 mb-2"><strong class="col-12">Email</strong></label><br>
-                    <input class="form-control form-control" name="email" id="email-signup" type="text" opacity="0.1">
+                    <input class="form-control form-control" name="email" id="email-signup" type="email" opacity="0.1" required>
                     <label for="account-signup" class="mt-4 mb-2"><strong class="col-12">Tài Khoản</strong></label><br>
-                    <input class="form-control form-control" name="account" id="account-signup" type="text" opacity="0.1">
+                    <input class="form-control form-control" name="account" id="account-signup" type="text" opacity="0.1" required>
                     <label for="password-signup" class="mt-4 mb-2"><strong class="col-12">Mật Khẩu</strong></label><br>
-                    <input class="form-control form-control" name="password" id="password-signup" type="password" opacity="0.1">
+                    <input class="form-control form-control" name="password" id="password-" type="password" opacity="0.1" required>
                 </div>
                 <div class="col-12 d-flex align-items-center justify-content-center mt-5">
                     <button class="btn btn-primary" style="width: 200px;">Đăng Ký</button>

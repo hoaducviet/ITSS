@@ -7,12 +7,13 @@ mongoose.plugin(slug);
 
 const Parent = new Schema(
     {
-        name: { type: String, required: true },
+        name: { type: String, },
         address: { type: String},
         dateOfBirth: { type: String},
         email: { type: String, maxLength: 255 },
         gender: { type: String},
         phone: { type: String},
+        user_Id: {type: String},
         slug: { type: String, slug: 'name' },
     },
     {
