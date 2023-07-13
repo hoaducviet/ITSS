@@ -9,13 +9,19 @@ class AdminMedicalController {
     // GET /me/stored/couses
 
     medical(req, res) {
-        res.render('user/medical');
+        res.render('user/medical',{
+            isUser: true,
+        });
     }
     medicalInfo(req, res) {
-        res.render('user/medical-info');
+        res.render('user/medical-info',{
+            isUser: true,
+        });
     }
     medicalInfoUpdate(req, res) {
-        res.render('user/medical-info-update');
+        res.render('user/medical-info-update',{
+            isUser: true,
+        });
     }
 
 }

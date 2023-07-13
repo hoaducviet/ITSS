@@ -4,23 +4,27 @@
         <div class="col-10">
             <div class="row">
                 <div class="col-4 mt-5"><strong>Người Khám Bệnh</strong></div>
-                <div class="col-8 mt-5"></div>
+                <div class="col-8 mt-5">{{register.name}}</div>
             </div>
             <div class="row">
-                <div class="col-4 mt-5"><strong>Ngày Sinh</strong></div>
-                <div class="col-8 mt-5"></div>
+                <div class="col-4 mt-5"><strong>Tuổi</strong></div>
+                <div class="col-8 mt-5">{{register.age}}</div>
             </div>
              <div class="row">
                 <div class="col-4 mt-5"><strong>Giới Tính</strong></div>
-                <div class="col-8 mt-5"></div>
+                <div class="col-8 mt-5">{{register.gender}}</div>
             </div>
              <div class="row">
-                <div class="col-12 mt-5"><strong>Triệu Chứng</strong></div>
-                <span class="col-12 mt-5 ps-5 pe-5">ádfsadfasdfasdf</span>
+                <div class="col-4 mt-5"><strong>Triệu Chứng</strong></div>
+                <textarea class="col-12 mt-5 ps-5 pe-5" cols="5" rows="5">{{register.description}}</textarea>
             </div>
              <div class="row">
                 <div class="col-4 mt-5"><strong>Ngày Khám</strong></div>
-                <div class="col-8 mt-5"></div>
+                <div class="col-8 mt-5">{{register.date}}</div>
+            </div>
+             <div class="row">
+                <div class="col-4 mt-5"><strong>Giờ Khám</strong></div>
+                <div class="col-8 mt-5">{{register.time}}</div>
             </div>
         </div>
     </div>

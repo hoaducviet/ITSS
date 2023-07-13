@@ -17,8 +17,15 @@ class SiteController {
         res.render('search');
     }
 
-    login(req, res) {
-        res.render('login');
+    signIn(req, res) {
+        res.render('sign-in');
     }
+    signUp(req, res) {
+        res.render('sign-up');
+    }
+    forgot(req, res) {
+        res.render('forgot');
+    }
+   
 }
 module.exports = new SiteController();

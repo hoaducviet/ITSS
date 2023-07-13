@@ -12,6 +12,7 @@ class UserRegisterController {
         Register.find({})
             .then((Registers) => {
                 res.render('user/register', {
+                    isUser: true,
                     Registers: mutipleMongooseToObject(Registers),
                 });
             })
@@ -19,10 +20,14 @@ class UserRegisterController {
     }
 
     registerInjection(req, res) {
-        res.render('user/register-injection');
+        res.render('user/register-injection',{
+            isUser: true,
+        });
     }
     registerDoctor(req, res) {
-        res.render('user/register-doctor');
+        res.render('user/register-doctor',{
+            isUser: true,
+        });
     }
 }
 module.exports = new UserRegisterController();

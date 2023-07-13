@@ -5,6 +5,8 @@ const Children = require('../../models/Children');
 const Register = require('../../models/Register');
 const MedicalRecord = require('../../models/MedicalRecord');
 const { mutipleMongooseToObject } = require('../../../util/mongoose');
+const { mongooseToObject } = require('../../../util/mongoose');
+
 class AdminRegisterController {
     // GET /me/stored/couses
 
@@ -18,13 +20,27 @@ class AdminRegisterController {
         })
         .catch(next);
     }
-    registerInjection(req, res) {
-        res.render('admin/register-injection',{isAdmin: true});
+    registerInjection(req, res, next) {
+        Register.findById(req.params.id)
+            .then((register) =>
+                res.render('admin/register-injection', {
+                    isAdmin: true,
+                    register: mongooseToObject(register),
+                }),
+            )
+            .catch(next);
     }
-    registerSeeADoctor(req, res) {
-        res.render('admin/register-doctor',{isAdmin: true});
+    registerSeeADoctor(req, res, next) {
+        Register.findById(req.params.id)
+            .then((register) =>
+                res.render('admin/register-doctor', {
+                    isAdmin: true,
+                    register: mongooseToObject(register),
+                }),
+            )
+            .catch(next);
     }
-
+   
 
 
 

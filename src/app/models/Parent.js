@@ -4,20 +4,15 @@ const slug = require('mongoose-slug-generator');
 const mongooseDelete = require('mongoose-delete');
 
 mongoose.plugin(slug);
-const Child = new Schema(
-    {
-        name: { type: String, required: true },
-        age: { type: Number },
-        gender: { type: String },
-    }
-);
+
 const Parent = new Schema(
     {
         name: { type: String, required: true },
-        description: { type: String, maxLength: 600 },
-        image: { type: String, maxLength: 255 },
-        videoId: { type: String, maxLength: 255 },
-        level: { type: String, maxLength: 255 },
+        address: { type: String},
+        dateOfBirth: { type: String},
+        email: { type: String, maxLength: 255 },
+        gender: { type: String},
+        phone: { type: String},
         slug: { type: String, slug: 'name' },
     },
     {

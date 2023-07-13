@@ -9,10 +9,14 @@ class UserHomeController {
     // GET /me/stored/couses
 
     home(req, res) {
-        res.render('user/home');
+        res.render('user/home',{
+            isUser: true,
+        });
     }
     homeChart(req, res) {
-        res.render('user/home-chart');
+        res.render('user/home-chart',{
+            isUser: true,
+        });
     }
 }
 module.exports = new UserHomeController();

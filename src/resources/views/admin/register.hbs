@@ -25,9 +25,9 @@
                         <td>{{this.date}}</td>
                         <td class="d-flex justify-content-center">
                             {{#if (option this.option "Khám Bệnh")}}
-                                <a href="/admin/register/seeadoctor/{{this.slug}}" class="btn btn-success me-4">Xem</a>
+                                <a href="/admin/register/seeadoctor/{{this._id}}" class="btn btn-success me-4">Xem</a>
                             {{else if (option this.option "Tiêm Chủng")}}
-                                <a href="/admin/register/injection/{{this.slug}}" class="btn btn-success me-4">Xem</a>
+                                <a href="/admin/register/injection/{{this._id}}" class="btn btn-success me-4">Xem</a>
                             {{/if}}
                             <button class="btn btn-primary">Duyệt</button>
                         </td>

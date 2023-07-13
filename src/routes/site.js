@@ -4,7 +4,9 @@ const siteController = require('../app/controllers/SiteController');
 
 // router.get('/search', siteController.search);
 // router.get('/', siteController.index);
-router.get('/', siteController.login);
+router.get('/', siteController.signIn);
+router.get('/signup', siteController.signUp);
+router.get('/forgot', siteController.forgot);
 
 
 module.exports = router;

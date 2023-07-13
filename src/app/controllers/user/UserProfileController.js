@@ -9,10 +9,14 @@ class UserProfileController {
     // GET /me/stored/couses
 
     profile(req, res) {
-        res.render('user/profile');
+        res.render('user/profile',{
+            isUser: true,
+        });
     }
     profileUpdate(req, res) {
-        res.render('user/profile-update');
+        res.render('user/profile-update',{
+            isUser: true,
+        });
     }
 }
 module.exports = new UserProfileController();

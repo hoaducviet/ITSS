@@ -12,24 +12,26 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-    <div class="app">
-        
-       <div class="app">
+   <div class="app">
         {{#if isAdmin}}
             {{> admin-header}}
-        {{else}}
+        {{else if isUser}}
             {{> user-header}}
+        {{else}}
+            {{> guest-header}}
         {{/if}}
         <div class="container-fluid">
             {{{body}}}
         </div>
         {{#if isAdmin}}
             {{> admin-footer}}
-        {{else}}
+        {{else if isUser}}
             {{> user-footer}}
+        {{else}}
+            {{> guest-footer}}
         {{/if}}
     </div>
-    </div>
+       
         
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 </body>

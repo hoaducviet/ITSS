@@ -5,6 +5,8 @@ const Children = require('../../models/Children');
 const Register = require('../../models/Register');
 const MedicalRecord = require('../../models/MedicalRecord');
 const { mutipleMongooseToObject } = require('../../../util/mongoose');
+const { mongooseToObject } = require('../../../util/mongoose');
+
 class AdminUserController {
     // GET /me/stored/couses
 
@@ -26,8 +28,15 @@ class AdminUserController {
     }
 
 
-    userInfo(req, res) {
-        res.render('admin/user-info',{isAdmin: true});
+    userInfo(req, res, next) {
+        Parent.findById(req.params.id)
+        .then((parent) =>
+            res.render('admin/user-info', {
+                isAdmin: true,
+                parent: mongooseToObject(parent),
+            }),
+        )
+        .catch(next);
     }
     userInfoUpdate(req, res) {
         res.render('admin/user-info-update',{isAdmin: true});

@@ -1,7 +1,7 @@
 <>
     <div class="row ps-3 pt-4"><h1>Thông Tin Chi Tiết</h1></div>
     <div class="row">
-        <a href="/admin/user/info/update" class="btn btn-danger ms-auto" style="width: 100px;">Sửa</a>
+        <a href="/admin/user/info/update/{{parent._id}}" class="btn btn-danger ms-auto" style="width: 100px;">Sửa</a>
         <a href="/admin/user" class="btn btn-primary ms-3 me-5" style="width: 100px;">Quay Lại</a>
     </div>
     <div class="row mt-5">
@@ -10,32 +10,32 @@
 
                 <div class="row">
                     <div class="col-4"><strong>Họ Tên</strong></div>
-                    <div class="col-8">Hoả Đức Việt</div>
+                    <div class="col-8">{{parent.name}}</div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-4"><strong>Ngày Sinh</strong></div>
-                    <div class="col-8">21/02/2002</div>
+                    <div class="col-8">{{parent.dateOfBirth}}</div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-4"><strong>Giới Tính</strong></div>
-                    <div class="col-8">Nam</div>
+                    <div class="col-8">{{parent.children_Id}}</div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-4"><strong>Quê Quán</strong></div>
-                    <div class="col-8">Hà Nội</div>
+                    <div class="col-8">{{parent.address}}</div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-4"><strong>SĐT</strong></div>
-                    <div class="col-8">01232425454</div>
+                    <div class="col-8">{{parent.phone}}</div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-4"><strong>Email</strong></div>
-                    <div class="col-8">viet.hd205046@sis.hust.edu.vn</div>
+                    <div class="col-8">{{parent.email}}</div>
                 </div>
                 
             </div>
                 <div class="row m-5">
-                    <a href="/admin/user/info/medical" class="btn btn-primary ms-auto" style="width: 150px;">Sổ Khám Bệnh</a>
+                    <a href="/admin/user/info/medical/{{parent._id}}" class="btn btn-primary ms-auto" style="width: 150px;">Sổ Khám Bệnh</a>
                     <button href="" class="btn btn-danger ms-3" style="width: 100px;">Xoá</button>
                 </div>
 

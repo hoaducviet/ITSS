@@ -9,8 +9,8 @@ const adminInjectionController = require('../app/controllers/admin/AdminInjectio
 router.get('/home', adminHomeController.home);
 
 router.get('/register', adminRegisterController.registerList);
-router.get('/register/injection', adminRegisterController.registerInjection);
-router.get('/register/seeadoctor', adminRegisterController.registerSeeADoctor);
+router.get('/register/injection/:id', adminRegisterController.registerInjection);
+router.get('/register/seeadoctor/:id', adminRegisterController.registerSeeADoctor);
 
 
 
@@ -19,8 +19,8 @@ router.get('/chart', adminChartController.chart);
 router.get('/user', adminUserController.userList);
 router.get('/user/info/:id', adminUserController.userInfo);
 router.delete('/user/delete/:id', adminUserController.userDelete);
-router.get('/user/info/update', adminUserController.userInfoUpdate);
-router.get('/user/info/medical', adminUserController.userInfoMedical);
+router.get('/user/info/update/:id', adminUserController.userInfoUpdate);
+router.get('/user/info/medical/:id', adminUserController.userInfoMedical);
 router.get('/user/info/medical/update', adminUserController.userInfoMedicalUpdate);
 
 
