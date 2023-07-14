@@ -24,24 +24,24 @@
                 <thead class="header-table">
                 <tr style="height: 40px;">
                     <th style="width:200px;">Tên</th>
-                    <th style="width:200px;">Tuổi</th>
+                    <th style="width:200px;">Ngày Sinh</th>
                     <th style="width:200px;">Loại</th>
                     <th style="width:200px;">Thời gian</th>
                     <th style="width:200px;"> Ngày</th>
-                    <th colspan="2" style="width:300px;">Tình Trạng</th>
+                    <th colspan="2" style="width:200px;">Tình Trạng</th>
                 </tr>
                 </thead>
                 <tbody>
-                    {{#each Register}}
+                    {{#each registers}}
                     <tr>
-                        <td></td>
                         <td>{{this.name}}</td>
-                        <td>{{this.old}}</td>
+                        <td>{{this.dateOfBirth}}</td>
                         <td>{{this.option}}</td>
-                        {{!-- <td>{{this.time}}</td> --}}
+                        <td>{{this.time}}</td>
                         <td>{{this.date}}</td>
+                        <td>{{this.status}}</td>
                         <td>
-                            <button class="btn btn-danger ms-2">Xoá</button>
+                            <button class="btn btn-danger" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#delete-register-modal">Xoá</button>
                         </td>
                     </tr>
                     {{/each}}
@@ -50,3 +50,40 @@
         </div>
     </div>
 </div>
+
+<div class="modal" id="delete-register-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xoá Khoá Học</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xoá khoá học này không?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-register" type="button" class="btn btn-danger">Xoá Bỏ</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form method="POST" name="delete-register-form"></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var registerId
+        var deleteForm = document.forms['delete-register-form']
+        $('#delete-register-modal').on('show.bs.modal',function(e){
+            var button = $(e.relatedTarget)
+            registerId = button.data('id')
+        })
+        $('#btn-delete-register').on('click',function(){
+            deleteForm.action = '/user/register/' + registerId + '?_method=DELETE'
+            deleteForm.submit()
+            
+        })
+
+        
+    })
+</script>

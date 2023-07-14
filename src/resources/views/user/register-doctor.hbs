@@ -1,20 +1,20 @@
 <div class="">
     <div class="row ps-3 pt-4"><h1>Đăng Ký Khám</h1></div>
     <div class="container m-5">
-        <form action="" class="">
+        <form method="POST" action="/user/register/doctor/submit" class="ms-5 me-5">
             <div class="col-12">
                 <label for="object-name-see-a-doctor" class="mb-2">Đối Tượng Khám</label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm" id="object-name-see-a-doctor" style="width: 500px;">
+                <select name="name" class="form-select form-select-sm" aria-label=".form-select-sm" id="object-name-see-a-doctor" style="width: 500px;">
                     <option selected>Chọn</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {{#each persons}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
                 </select>
 
                 <label for="object-description-see-a-doctor" class="mt-4 mb-2">Triệu Chứng</label>
-                <textarea name="" id="object-description-see-a-doctor" class="form-control" cols="30" rows="10" class=""></textarea>
+                <textarea name="description" id="object-description-see-a-doctor" class="form-control" cols="30" rows="10" class=""></textarea>
                 <label for="object-time-see-a-doctor" class="mt-4 mb-2">Thời Gian Khám</label>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm" id="object-time-see-a-doctor" style="width: 500px;">
+                <select name="time" class="form-select form-select-sm" aria-label=".form-select-sm" id="object-time-see-a-doctor" style="width: 500px;">
                     <option selected>Chọn</option>
                     <option value="8:00">8:00</option>
                     <option value="8:30">8:30</option>
@@ -34,10 +34,12 @@
                     <option value="16:30">16:30</option>
                     <option value="17:00">17:00</option>
                 </select>
+                <label for="date-see-a-doctor" class="mt-4 mb-2">Ngày Khám</label>
+                <input type="text" name="date" class="form-control form-control-sm" name="date" id="date-see-a-doctor" style="width: 500px;"></input>
             </div>
             <div class="row">
                 <a href="/user/register" class="btn btn-danger mt-5 ms-auto me-4" style="width:90px;">Huỷ</a>
-                <button class="btn btn-primary mt-5 me-5" style="width: 90px;">Đăng Ký</button>
+                <button type="submit" class="btn btn-primary mt-5 me-5" style="width: 90px;">Đăng Ký</button>
             </div>
         </form>
 

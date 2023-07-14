@@ -6,13 +6,16 @@ const mongooseDelete = require('mongoose-delete');
 mongoose.plugin(slug);
 const Register = new Schema(
     {
-        name: { type: String, required: true },
-        age: { type: Number},
+        name: { type: String},
+        dateOfBirth: { type: String},
         time: { type: String},
         date: { type: String, maxLength: 255 },
-        description: { type: String, maxLength: 500 },
         option: {type: String},
-        slug: { type: String, slug: 'name' },
+        gender: {type: String},
+        user_Id: {type: String},
+        status: {type: String},
+        description: { type: String, maxLength: 500 },
+        nameVaccine: {type: String, maxLength: 100},
     },
     {
         timestamps: true,

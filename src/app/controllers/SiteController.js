@@ -34,7 +34,7 @@ class SiteController {
                     if(user.role == 1){
                         res.redirect('/admin/home')
                     }else if(user.role == 2){
-                        res.redirect('/user/home')
+                        res.redirect('/user/home/add/session/children/parent')
                     }else{
                         res.redirect('/')
                     }

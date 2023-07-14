@@ -7,7 +7,7 @@ module.exports = {
         if (str1 == str2){return true}
         else {return false}
     },
-    
+   
     sortable: (field, sort) => {
         const sortType = field === sort.column ? sort.type : 'default';
 

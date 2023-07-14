@@ -8,6 +8,7 @@ const adminInjectionController = require('../app/controllers/admin/AdminInjectio
 
 router.get('/home', adminHomeController.home);
 
+
 router.get('/register', adminRegisterController.registerList);
 router.get('/register/injection/:id', adminRegisterController.registerInjection);
 router.get('/register/seeadoctor/:id', adminRegisterController.registerSeeADoctor);

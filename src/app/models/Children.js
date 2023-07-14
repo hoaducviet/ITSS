@@ -6,12 +6,10 @@ const mongooseDelete = require('mongoose-delete');
 mongoose.plugin(slug);
 const Children = new Schema(
     {
-        name: { type: String, required: true },
-        description: { type: String, maxLength: 600 },
-        image: { type: String, maxLength: 255 },
-        videoId: { type: String, maxLength: 255 },
-        level: { type: String, maxLength: 255 },
-        slug: { type: String, slug: 'name' },
+        name: { type: String},
+        gender: { type: String},
+        dateOfBirth: { type: String},
+        parent_Id: { type: String, maxLength: 255 },
     },
     {
         timestamps: true,
