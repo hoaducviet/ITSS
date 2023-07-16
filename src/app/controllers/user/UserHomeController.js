@@ -3,7 +3,6 @@ const Injection = require('../../models/Injection');
 const Parent = require('../../models/Parent');
 const Children = require('../../models/Children');
 const Register = require('../../models/Register');
-const MedicalRecord = require('../../models/MedicalRecord');
 const { mutipleMongooseToObject, mongooseToObject } = require('../../../util/mongoose');
 class UserHomeController {
     // GET /me/stored/couses

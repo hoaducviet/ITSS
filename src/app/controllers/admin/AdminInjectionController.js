@@ -3,7 +3,6 @@ const Injection = require('../../models/Injection');
 const Parent = require('../../models/Parent');
 const Children = require('../../models/Children');
 const Register = require('../../models/Register');
-const MedicalRecord = require('../../models/MedicalRecord');
 
 const { mutipleMongooseToObject } = require('../../../util/mongoose');
 const { mongooseToObject } = require('../../../util/mongoose');
