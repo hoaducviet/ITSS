@@ -1,8 +1,8 @@
-<>
+<div>
     <div class="row ps-3 pt-4"><h1>Thông Tin Chi Tiết</h1></div>
     <div class="row">
-        <a href="/admin/user/info/update/{{parent._id}}" class="btn btn-danger ms-auto" style="width: 100px;">Sửa</a>
-        <a href="/admin/user" class="btn btn-primary ms-3 me-5" style="width: 100px;">Quay Lại</a>
+        <a href="/admin/user/info/add/children/{{parent._id}}" class="btn btn-primary ms-auto me-5" style="width: 150px;">+ Thêm Con</a>
+        <a href="/admin/user" class="btn btn-primary me-5" style="width: 100px;">Quay Lại</a>
     </div>
     <div class="row mt-5">
         <div class="col-6 border-end border-2">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-4"><strong>Giới Tính</strong></div>
-                    <div class="col-8">{{parent.children_Id}}</div>
+                    <div class="col-8">{{parent.gender}}</div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-4"><strong>Quê Quán</strong></div>
@@ -32,46 +32,83 @@
                     <div class="col-4"><strong>Email</strong></div>
                     <div class="col-8">{{parent.email}}</div>
                 </div>
-                
-            </div>
-                <div class="row m-5">
-                    <a href="/admin/user/info/medical/{{parent._id}}" class="btn btn-primary ms-auto" style="width: 150px;">Sổ Khám Bệnh</a>
-                    <button href="" class="btn btn-danger ms-3" style="width: 100px;">Xoá</button>
+                <div class="row mt-5">
+                    <a href="/admin/user/info/parent/medical/{{parent._id}}" class="btn btn-primary ms-auto me-5" style="width: 150px;">Sổ Khám Bệnh</a>
+                    <a href="/admin/user/info/edit/parent/{{parent._id}}" class="btn btn-primary me-auto" style="width: 150px;">Cập Nhật</a>
                 </div>
-
-
-
+            </div>
+                
         </div>
-        <div class="col-6 d-flex align-items-center justify-content-center">
-            
-                            
+        <div class="col-6 d-flex align-items-center justify-content-center">                
                 <div class="card mb-3 shadow-sm" style="width: 25rem;">
                     <div class="card-body">
                         <h5 class="card-title text-center"><strong> Thông Tin Con</strong> </h5>
+                        {{#each childrens}}
                         <hr>
                         <div class="card-text">
                             <div class="row mt-3">
                                 <div class="col-6"><strong>Họ Tên</strong></div>
-                                <div class="col-6">Lê Minh Vũ</div>
+                                <div class="col-6">{{this.name}}</div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6"><strong>Ngày Sinh</strong></div>
-                                <div class="col-6">21/2/2002</div>
+                                <div class="col-6">{{this.dateOfBirth}}</div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-6"><strong>Giới Tính</strong></div>
-                                <div class="col-6">Nữ</div>
+                                <div class="col-6">{{this.gender}}</div>
                             </div>
-                            <div class="row mt-4">
-                                <a href="/admin/user/info/medical" class="btn btn-primary ms-5" style="width: 150px;">Sổ Khám Bệnh</a>
-                                <button class="btn btn-danger ms-3" style="width: 100px;">Xoá</button>
+                             <div class="row mt-3">
+                                <a href="/admin/user/info/children/medical/{{this._id}}" class="btn btn-primary ms-auto me-auto" style="width: 150px;">Sổ Khám Bệnh</a>
+                                <a href="/admin/user/info/edit/children/{{this._id}}" class="btn btn-primary ms-auto me-auto" style="width: 100px;">Cập Nhật</a>
+                                <button class="btn btn-danger ms-auto me-auto" data-id="{{this._id}}" data-bs-toggle="modal" data-bs-target="#delete-children-modal" style="width: 100px;">Xoá</button>
                             </div>
+
                         </div>
+                        {{/each}}
                     </div>
                 </div>
-                </div>
             </div>
+        </div>
            
         
     </div>
 </div>
+
+
+<div class="modal" id="delete-children-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xoá Khoá Học</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xoá khoá học này không?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-children" type="button" class="btn btn-danger">Xoá Bỏ</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form method="POST" name="delete-children-form"></form>
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var childrenId
+        var deleteForm = document.forms['delete-children-form']
+        $('#delete-children-modal').on('show.bs.modal',function(e){
+            var button = $(e.relatedTarget)
+            childrenId = button.data('id')
+        })
+        $('#btn-delete-children').on('click',function(){
+            deleteForm.action = '/admin/user/info/children/delete/' + childrenId + '?_method=DELETE'
+            deleteForm.submit()
+            
+        })
+
+        
+    })
+</script>

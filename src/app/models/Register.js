@@ -16,6 +16,9 @@ const Register = new Schema(
         status: {type: String},
         description: { type: String, maxLength: 500 },
         nameVaccine: {type: String, maxLength: 100},
+        indication: {type: String, maxLength: 500},
+        symptom: {type: String, maxLength: 500},
+        resultSeeADoctor: {type: String, maxLength: 500},
     },
     {
         timestamps: true,

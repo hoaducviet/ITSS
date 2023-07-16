@@ -4,7 +4,7 @@ const Parent = require('../../models/Parent');
 const Children = require('../../models/Children');
 const Register = require('../../models/Register');
 const MedicalRecord = require('../../models/MedicalRecord');
-const { mutipleMongooseToObject } = require('../../../util/mongoose');
+const { mutipleMongooseToObject, mongooseToObject } = require('../../../util/mongoose');
 class AdminMedicalController {
     // GET /me/stored/couses
 
@@ -17,18 +17,40 @@ class AdminMedicalController {
             childrens: childrens,
         });
     }
-    medicalInfo(req, res) {
+    medicalInfoParent(req, res, next) {
+        const user = req.session.user
         const parent = req.session.parent
-        res.render('user/medical-info',{
-            isUser: true,
-            parent: parent,
-        });
+        Register.find({user_Id: user._id, name: parent.name, status: "Hoàn Thành"})
+            .then((registers) =>{
+                res.render('user/medical-info-parent',{
+                    isUser: true,
+                    parent: parent,
+                    registers: mutipleMongooseToObject(registers)
+                });         
+            })
+            .catch(next)
+       
     }
-    medicalInfoChildren(req, res) {
-        res.render('user/medical-info',{
-            isUser: true,
-        });
+    medicalInfoChildren(req, res, next) {
+        const user = req.session.user
+        const childrenId = req.params.id
+        Children.findById(childrenId)
+            .then((children) =>{
+                children = mongooseToObject(children)
+                Register.find({user_Id: user._id, name: children.name, status: "Hoàn Thành"})
+                    .then((registers) =>{
+                        res.render('user/medical-info-children',{
+                            isUser: true,
+                            children: children,
+                            registers: mutipleMongooseToObject(registers)
+                        });         
+                    })
+                    .catch(next)
+            })
+            .catch(next)
     }
+
+
     medicalInfoUpdate(req, res) {
         res.render('user/medical-info-update',{
             isUser: true,

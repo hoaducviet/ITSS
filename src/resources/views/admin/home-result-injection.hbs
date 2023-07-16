@@ -1,6 +1,6 @@
 <div>
-    <div class="row ps-3 pt-4"><h1>Đơn Đăng Ký Tiêm Chủng</h1></div>
-    <form method="POST" action="/admin/register/confirm/{{register._id}}?_method=PUT" class="">
+    <div class="row ps-3 pt-4"><h1>Phiếu Kết Quả Tiêm Chủng</h1></div>
+    <form method="POST" action="/admin/home/result/injection/store/{{register._id}}?_method=PUT" class="">
         <div class="row d-flex align-items-center justify-content-center m-5">
             <div class="col-3"></div>
             <div class="col-6 shadow-sm">
@@ -28,9 +28,18 @@
                     <div class="col-6"><strong>Giờ Tiêm</strong></div>
                     <div class="col-6">{{register.time}}</div>
                 </div>
+                <div class="row ms-5 mt-5 mb-5">
+                    <label for="indications-injection"><strong>Chỉ Định Sau Tiêm</strong></label>
+                    <textarea name="indication" id="indications-injection" cols="30" rows="5"></textarea>
+                </div>
+                <div class="row ms-5 mt-5 mb-5">
+                    <label for="symptom-injection"><strong>Triệu Chứng Sau Tiêm</strong></label>
+                    <textarea name="symptom" id="symptom-injection" cols="30" rows="5"></textarea>
+                </div>
+
                 <div class="row ms-5 m-5">
-                    <a href="/admin/register" class="btn btn-danger ms-auto me-5" style="width: 80px;">Huỷ</a>
-                    <button type="submit" class="btn btn-primary me-5" style="width:80px;">Duyệt</button>
+                    <a href="/admin/home" class="btn btn-danger ms-auto me-5" style="width: 80px;">Huỷ</a>
+                    <button type="submit" class="btn btn-primary me-5" style="width:80px;">Lưu</button>
                 </div>
             </div>
             <div class="col-3"></div>

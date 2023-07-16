@@ -3,7 +3,7 @@
     <div class="row mt-5">
         <div class="col-6 mt-5">
                 <div class="col-12 d-flex align-items-center justify-content-center mb-4">
-                    <a href="/user/medical/info" class="btn btn-primary" style="width: 20rem; font-size: 25px">Sổ Khám Bệnh Của Tôi</a>
+                    <a href="/user/medical/info/parent" class="btn btn-primary" style="width: 20rem; font-size: 25px">Sổ Khám Bệnh Của Tôi</a>
                 </div>
                 <div class="col-12 d-flex align-items-center justify-content-center">
                     <div class="card mb-3 shadow-sm" style="width: 20rem;">
@@ -12,7 +12,7 @@
                             {{#each childrens}}
                             <hr>
                             <div class="card-text text-center">
-                            <a href="/user/medical/info/{{this._id}}" class="btn text-decoration-none">{{this.name}}</a>
+                            <a href="/user/medical/info/children/{{this._id}}" class="btn text-decoration-none">{{this.name}}</a>
                             </div>
                             {{/each}}
                         </div>

@@ -12,10 +12,10 @@
                 </select>
                 <label for="vacxin-register" class="mt-4 mb-2">Chọn Vaccin</label>
                 <select class="form-select form-select-sm" aria-label=".form-select-sm" name="nameVaccine" id="vacxin-register" style="width: 500px;">
-                    <option value="" selected>Chọn</option>
-                    <option value="Vaccin Viêm Gan B">Vaccin Viêm Gan B</option>
-                    <option value="Vaccin Covid19">Vaccin Covid19</option>
-                    <option value="Vaccin Viêm Não Nhật Bản">Vaccin Viêm Não Nhật Bản</option>
+                    <option selected>Chọn</option>
+                   {{#each injections}}
+                    <option value="{{this.nameVaccine}}">{{this.nameVaccine}}</option>
+                   {{/each}}
                 </select>
                <label for="object-time-injection" class="mt-4 mb-2">Thời Gian Tiêm</label>
                 <select class="form-select form-select-sm" aria-label=".form-select-sm" name="time" id="object-time-injection" style="width: 500px;">

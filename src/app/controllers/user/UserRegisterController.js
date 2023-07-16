@@ -26,14 +26,20 @@ class UserRegisterController {
     }
 
     //GET /User/Register/Injection/Form
-    registerInjection(req, res) {
+    registerInjection(req, res, next) {
         const data = JSON.parse(JSON.stringify(req.session));
         let persons = data.children || []
         persons.push(data.parent)
-        res.render('user/register-injection',{
-            isUser: true,
-            persons: persons,
-        });
+        Injection.find({})
+            .then((injections) => {
+                res.render('user/register-injection',{
+                    isUser: true,
+                    persons: persons,
+                    injections: mutipleMongooseToObject(injections)
+                });
+
+            })
+            .catch(next)
     }
 
     //POST /User/Register/Injection/Submit

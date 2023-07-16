@@ -10,16 +10,25 @@ const { mongooseToObject } = require('../../../util/mongoose');
 class AdminRegisterController {
     // GET /me/stored/couses
 
-    registerList(req, res, next) {
-        Register.find({})
-        .then((Registers) => {
+    register(req, res, next) {
+        Register.find({status: "Chờ Duyệt"})
+        .then((registers) => {
             res.render('admin/register', {
                 isAdmin: true,
-                Registers: mutipleMongooseToObject(Registers),
+                registers: mutipleMongooseToObject(registers),
             });
         })
         .catch(next);
     }
+     
+    //DELETE /User/Register/Delete/:id
+    registerDelete(req, res, next) {
+        Register.delete({ _id: req.params.id })
+            .then(() => res.redirect('/admin/register'))
+            .catch(next);
+    }
+
+    //GET /User/Register/Injection/:id
     registerInjection(req, res, next) {
         Register.findById(req.params.id)
             .then((register) =>
@@ -30,6 +39,8 @@ class AdminRegisterController {
             )
             .catch(next);
     }
+
+    //GET /User/Register/SeeADoctor/:id
     registerSeeADoctor(req, res, next) {
         Register.findById(req.params.id)
             .then((register) =>
@@ -40,8 +51,14 @@ class AdminRegisterController {
             )
             .catch(next);
     }
-   
+    registerConfirm(req, res, next) {
+        
+        Register.updateOne({ _id: req.params.id },{status: 'Chấp Nhận'})
+            .then(() => res.redirect('/admin/register'))
+            .catch(next);
+    }
 
+    
 
 
     babyProfile(req, res) {

@@ -25,8 +25,8 @@ router.get('/profile/add/children', userProfileController.profileAddChildren);
 router.post('/profile/store/new/children', userProfileController.profileStoreNewChildren);
 
 router.get('/medical', userMedicalController.medical);
-router.get('/medical/info', userMedicalController.medicalInfo);
-router.get('/medical/info/:id', userMedicalController.medicalInfoChildren);
+router.get('/medical/info/parent', userMedicalController.medicalInfoParent);
+router.get('/medical/info/children/:id', userMedicalController.medicalInfoChildren);
 router.get('/medical/info/update', userMedicalController.medicalInfoUpdate);
 
 module.exports = router;

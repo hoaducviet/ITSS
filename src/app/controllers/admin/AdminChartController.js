@@ -6,10 +6,25 @@ const Register = require('../../models/Register');
 const MedicalRecord = require('../../models/MedicalRecord');
 const { mutipleMongooseToObject } = require('../../../util/mongoose');
 class AdminChartController {
-    // GET /me/stored/couses
-
-    chart(req, res) {
-        res.render('admin/chart',{isAdmin: true});
+    
+    // GET /Admin/Chart
+    chart(req, res, next) {
+        Promise.all([
+            Parent.countDocuments({}),
+            Children.countDocuments({}),
+            Register.countDocuments({option: "Tiêm Chủng", status: "Hoàn Thành"}),
+            Register.countDocuments({option: "Khám Bệnh", status: "Hoàn Thành"}),
+        ])
+            .then(([countParent, countChildren, countInjection, countSeeADoctor])=>{
+                res.render('admin/chart',{
+                    isAdmin: true,
+                    countParent: countParent,
+                    countChildren: countChildren,
+                    countInjection: countInjection,
+                    countSeeADoctor: countSeeADoctor,
+                })
+            })
+            .catch(next)
     }
 }
 module.exports = new AdminChartController();

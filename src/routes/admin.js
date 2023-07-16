@@ -7,23 +7,38 @@ const adminUserController = require('../app/controllers/admin/AdminUserControlle
 const adminInjectionController = require('../app/controllers/admin/AdminInjectionController');
 
 router.get('/home', adminHomeController.home);
+router.get('/home/result/injection/:id', adminHomeController.resultInjection);
+router.put('/home/result/injection/store/:id', adminHomeController.storeResultInjection);
+router.get('/home/result/doctor/:id', adminHomeController.resultDoctor);
+router.put('/home/result/doctor/store/:id', adminHomeController.storeResultDoctor);
 
 
-router.get('/register', adminRegisterController.registerList);
+router.get('/register', adminRegisterController.register);
+router.delete('/register/delete/:id', adminRegisterController.registerDelete);
 router.get('/register/injection/:id', adminRegisterController.registerInjection);
 router.get('/register/seeadoctor/:id', adminRegisterController.registerSeeADoctor);
+router.put('/register/confirm/:id', adminRegisterController.registerConfirm);
+
 
 
 
 
 router.get('/chart', adminChartController.chart);
-router.get('/user', adminUserController.userList);
-router.get('/user/info/:id', adminUserController.userInfo);
-router.delete('/user/delete/:id', adminUserController.userDelete);
-router.get('/user/info/update/:id', adminUserController.userInfoUpdate);
-router.get('/user/info/medical/:id', adminUserController.userInfoMedical);
-router.get('/user/info/medical/update', adminUserController.userInfoMedicalUpdate);
 
+
+
+router.get('/user', adminUserController.userList);
+router.delete('/user/delete/:id', adminUserController.userDelete);
+router.get('/user/info/:id', adminUserController.userInfo);
+router.get('/user/info/add/children/:id', adminUserController.userInfoAddChildren);
+router.post('/user/info/store/children/:id', adminUserController.userStoreNewChildren);
+router.get('/user/info/edit/parent/:id', adminUserController.userInfoEditParent);
+router.put('/user/info/update/parent/:id', adminUserController.userInfoUpdateParent);
+router.get('/user/info/edit/children/:id', adminUserController.userInfoEditChildren);
+router.put('/user/info/update/children/:id', adminUserController.userInfoUpdateChildren);
+router.delete('/user/info/children/delete/:id', adminUserController.userChildrenDelete);
+router.get('/user/info/parent/medical/:id', adminUserController.userInfoParentMedical);
+router.get('/user/info/children/medical/:id', adminUserController.userInfoChildrenMedical);
 
 
 router.get('/injection', adminInjectionController.injection);
