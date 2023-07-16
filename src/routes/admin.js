@@ -7,6 +7,7 @@ const adminUserController = require('../app/controllers/admin/AdminUserControlle
 const adminInjectionController = require('../app/controllers/admin/AdminInjectionController');
 
 router.get('/home', adminHomeController.home);
+router.delete('/home/delete/:id', adminHomeController.homeDelete);
 router.get('/home/result/injection/:id', adminHomeController.resultInjection);
 router.put('/home/result/injection/store/:id', adminHomeController.storeResultInjection);
 router.get('/home/result/doctor/:id', adminHomeController.resultDoctor);

@@ -50,7 +50,7 @@ class AdminUserController {
     userChildrenDelete(req, res, next) {
         const parentId = req.session.parent._id
         Children.delete({ _id: req.params.id })
-            .then(() => res.redirect(`/admin/user/info/${pa}`))
+            .then(() => res.redirect(`/admin/user/info/${parentId}`))
             .catch(next);
     }
 

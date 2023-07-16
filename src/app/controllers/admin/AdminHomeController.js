@@ -25,7 +25,13 @@ class AdminHomeController {
             })
             .catch(next)
     }
-
+    //DELETE /User/Register/:id
+    homeDelete(req, res, next) {
+        Register.delete({ _id: req.params.id })
+            .then(() => res.redirect('/admin/home'))
+            .catch(next);
+    }
+    
     resultInjection(req, res, next){
         const registerId = req.params.id
         Register.findById(registerId)
