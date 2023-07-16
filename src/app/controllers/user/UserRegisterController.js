@@ -9,7 +9,8 @@ class UserRegisterController {
     
     //GET /User/Register
     register(req, res, next) {
-        Register.find({})
+        const userId = req.session.user._id
+        Register.find({user_Id: userId})
             .then((registers) => {
                 res.render('user/register', {
                     isUser: true,
