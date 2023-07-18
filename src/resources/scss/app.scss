@@ -14,3 +14,11 @@ h1 {
 .header-table{
     background-color: rgb(54, 111, 161);
 }
+
+/* CSS để đảm bảo các lớp Bootstrap không ghi đè lên kiểu hiển thị của modal */
+.modal-backdrop.show {
+    opacity: 0; /* Ẩn backdrop */
+    display: none; /* Ẩn backdrop */
+    pointer-events: none; /* Tắt sự kiện click trên backdrop */
+  }
+  

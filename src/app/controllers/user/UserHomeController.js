@@ -8,8 +8,10 @@ class UserHomeController {
     // GET /me/stored/couses
 
     home(req, res) {
+        const name = req.session.parent.name 
         res.render('user/home',{
             isUser: true,
+            name: name,
         });
     }
 
@@ -33,10 +35,5 @@ class UserHomeController {
             .catch(next)
     }
 
-    homeChart(req, res) {
-        res.render('user/home-chart',{
-            isUser: true,
-        });
-    }
 }
 module.exports = new UserHomeController();

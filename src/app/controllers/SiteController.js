@@ -28,22 +28,37 @@ class SiteController {
             })
             .catch(next)
     }
+
     signUp(req, res) {
         res.render('sign-up');
     }
+
+
     createSignUp(req, res, next){
-        req.session.email = req.body.email
-        const userData = {
-            account: req.body.account,
-            password: req.body.password,
-            role: 2
-        }
-        const user = new User(userData);
-        req.session.user = user
-        user.save()
-            .then(() => res.redirect('/update/profile'))
-            .catch(next);
+        Promise.all([
+            User.findOne({account: req.body.account}),
+            Parent.findOne({email: req.body.email})
+        ])
+            .then(([userName, parentEmail]) =>{
+                if(userName || parentEmail){
+                    res.redirect('/signup')
+                }else{
+                    req.session.email = req.body.email
+                    const newUser = new User({
+                        account: req.body.account,
+                        password: req.body.password,
+                        role: 2
+                    })
+                    req.session.user = newUser
+                    newUser.save()
+                        .then(() => res.redirect('/update/profile'))
+                        .catch(next);
+                }
+            })
+            .catch(next)
     }
+
+
     forgot(req, res) {
         res.render('forgot');
     }
