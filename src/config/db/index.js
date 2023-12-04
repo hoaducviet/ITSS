@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongodbURI = "mongodb+srv://Admin0801:Densaumotnguoi@cluster0.mhgu0bp.mongodb.net/QLNS?retryWrites=true&w=majority";
+const mongodbURI = "mongodb+srv://viethoang:viethoang21@cluster0.3hvcfxo.mongodb.net/mom_baby?retryWrites=true&w=majority"
 const uri1= 'mongodb://127.0.0.1:27017/nodejs_demo';
 
 
